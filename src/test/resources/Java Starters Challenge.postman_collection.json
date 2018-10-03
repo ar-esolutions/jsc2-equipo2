@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "13fbed09-31d0-4101-bf34-24e3dd25f588",
+		"name": "Java Starters Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Requerimiento 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:9090/floors/350/rooms/350",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"floors",
+						"350",
+						"rooms",
+						"350"
+					]
+				},
+				"description": "Para mantener un orden, el conserje confeccionó un complejo sistema de asignación de habitaciones. Decidió que cada húesped debe alojarse en la primer habitación libre del piso más bajo que cumpla alguna de estas reglas:\r\n\t- El 1er huésped debe alojarse en la habitación 1 del piso 1.\r\n\t- La sumatoria del número del último húesped alojado en el piso y el número del nuevo húesped es un cuadrado perfecto, es decir, su raíz cuadrada da como resultado un número entero (si el nuevo húesped es el número 5, y el alojado en la última habitación de ese piso, es el número 4, entonces n+m(9) es un cuadrado perfecto).\r\n\t- El piso está vacío.\r\n\r\nNota: Sólo puede haber un huésped por habitación.\r\n\r\nEjemplo\r\nEl primer húesped se aloja en la habitación 1 del 1er piso.\r\nEl huésped número 2 no puede alojarse en la habitación 2 del piso 1 ya que 1 + 2 = 3 no es un cuadrado perfecto, por lo que se le asigna la habitación 1 en el piso 2, que está vacío.\r\nEl húesped número 3, se aloja en la habitación 2 del piso 1 ya que 1 + 3 = 4 es un cuadrado perfecto.\r\nEl huésped número 4, no puede alojarse en el piso 1, ya que 3 + 4 = 7, y no es un cuadrado perfecto. Tampoco puede alojarse en el piso 2, ya que 2 + 4 = 6, no es un cuadrado perfecto. En consecuencia, el huésped 4 se aloja en la habitación 1 del piso 3 porque éste está vacío.\r\nLa apertura del hotel fue un éxito, y en un sólo día, el hotel recibió a 50.000 húespedes. Esa misma noche, el conserje recibe una llamada de la habitación 24 del piso 259, de un húesped quejándose de que en su habitación el aire acondicionado no funciona. El conserje debe buscar en su sistema el número de húesped, para registrar el incidente."
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"check-in\": \"2018-10-03\",\r\n  \"check-out\": \"2018-10-19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/floors/1/rooms/5/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"floors",
+						"1",
+						"rooms",
+						"5",
+						"book"
+					]
+				},
+				"description": "Con el objetivo de aumentar las ventas, el director del hotel, va a lanzar una nueva campaña para que los huéspedes puedan realizar una reserva mediante la página web del hotel.\r\n\r\nPara realizar la reserva, el cliente debe seleccionar la fecha de entrada, la de salida y el número de habitación.\r\n\r\nSegún las fechas de entrada y salida y tipo de habitación (Estandar o Suite) el director definió los siguientes precios:\r\n\r\nTipo/Fecha\t| Lun-Jue |\tVie-Dom\r\n------------|---------|---------\r\nEstandar\t| $150,99 |\t$191,99\r\nSuite\t\t| $187,99 |\t$202,99\r\n\r\nNotas: \r\n\t- En caso de que la habitación esté ocupada, la reserva no se podrá realizar.\r\n\t- No se debe aplicar ningún redondeo al resultado del monto final.\r\n\r\nEjemplo\r\nEntrada: 03/10/2018\r\nSalida: 19/10/2018\r\nNúmero de piso: 1\r\nNúmero de habitación: 5\r\n\r\nComo todavía no hay ninguna reserva, sabemos que la habitación 5 del piso 1 esta libre.\r\n\r\nDías Lun-Jue: 03/10, 04/10, 08/10, 09/10, 10/10, 11/10, 15/10, 16/10, 17/10, 18/10\r\nDías Vie-Dom: 05/10, 06/10, 07/10, 12/10, 13/10, 14/10"
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"check-in\": \"2018-10-03\",\r\n  \"check-out\": \"2018-10-19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/floors/7/rooms/6/wifi/ssid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"floors",
+						"7",
+						"rooms",
+						"6",
+						"wifi",
+						"ssid"
+					]
+				},
+				"description": "El hotel cuenta con un excelente servicio de internet, y para evitar congestiones, cada habitación cuenta con su propia red WiFi.\r\n\r\nEl técnico del hotel ha desarrollado un ingenioso sistema para definir el nombre de red de cada habitación. Para obtener el nombre correcto, a partir de la concatenación de las representaciones binarias del número de piso y el numero de habitación, se debe identificar la secuencia más larga de ceros que comienza y termina con un 1. Así, el nombre de la red se define como HAND-P-H-C, dónde:\r\n\r\n\t- P = Número de piso\r\n\t- H = Número de habitación\r\n\t- C = La cantidad de ceros en la secuencia más larga obtenida.\r\n\r\nNotas: \r\n\t* De no haber ninguna secuencia del tipo, el nombre de red se compone como HAND-P-H\r\n\t* Tanto para el número de piso como el de habitación, se consideran los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)\r\n\r\nEjemplo 1\r\nDado el piso 216 y la habitación 5, obtenemos la combinación binaria 11011000 para el piso y 1001 para la habitación. Luego de concatenar obtenemos 110110001001.\r\nDentro de esta cadena, obtenemos las secuencias 101, 10001, 1001.\r\nDado que la secuencia más larga continene 3 ceros, el nombre de red será HAND-216-5-3.\r\n\r\nEjemplo 2\r\nDado el piso 7 y la habitación 6, obtenemos la combinación binaria 111 para el piso y 110 para la habitación. Luego de concatenar obtenemos 111110.\r\nDentro de la misma, no existen secuencias válidas, por lo que el nombre de red será HAND-7-6.\r\n\r\nSe solicita desarrollar la lógica asociada a la definición del nombre de red."
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento 4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"check-in\": \"2018-10-03\",\r\n  \"check-out\": \"2018-10-19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/floors/4/rooms/2/wifi/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"floors",
+						"4",
+						"rooms",
+						"2",
+						"wifi",
+						"password"
+					]
+				},
+				"description": "Tal como lo hizo para el nombre de red, el técnico también definió un sistema para el armado de la contraseña. Partiendo de la letra J, la secuencia que describe la complejidad de la contraseña puede generarse aplicando N veces el siguiente conjunto de reglas en forma simultanea:\r\n\r\n\t- Reemplazar cada ocurrencia de la letra J por JA\r\n\t- Reemplazar cada ocurrencia de la letra A por VA\r\n\t- Reemplazar cada ocurrencia de la letra V por VJ\r\n\r\nN se obtiene de la sumatoria del número de piso y habitación.\r\n\r\nUna vez obtenida la secuencia, la contraseña se compondrá como \"PASS-P-H-C\" dónde:\r\n\r\n\t- P = Número de piso\r\n\t- H = Número de habitación\r\n\t- C = La cantidad de veces que la palabra \"JAVA\" aparece sobre la secuencia.\r\n\r\nNota: Tanto para el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)\r\n\r\nSe solicita desarrollar la lógica asociada a la definición de la contraseña de red.\r\n\r\nEjemplo 1\r\nDado el piso 1 y la habitación 2, obtenemos N=3. La secuencia entonces será:\r\n\r\nIteración |\tSalida\r\n\t0\t  |\tJ\r\n\t1\t  |\tJA\r\n\t2\t  |\tJAVA\r\n\t3\t  |\tJAVAVJVA\r\nDado que hay una sola ocurrencia de la palabra JAVA, la contraseña de red será PASS-1-2-1.\r\n\r\nEjemplo 2\r\nDado el piso 4 y la habitación 2, obtenemos N=6. La secuencia entonces será:\r\n\r\nIteración\tSalida\r\n\t0\t\tJ\r\n\t1\t\tJA\r\n\t2\t\tJAVA\r\n\t3\t\tJAVAVJVA\r\n\t4\t\tJAVAVJVAVJJAVJVA\r\n\t5\t\tJAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVA\r\n\t6\t\tJAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVAVJJAJAVAJAVAVJVAVJJAJAVAVJJAVJVA\r\nDado que existen 5 ocurrencias de la palabra JAVA, la contraseña de red será PASS-4-2-5."
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"check-in\": \"2018-10-03\",\r\n  \"check-out\": \"2018-10-19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/guests/last-name/repeated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"guests",
+						"last-name",
+						"repeated"
+					]
+				},
+				"description": "Como parte de una estrategia publicitaria, el hotel planea sacar una promoción en la cual bonifique en la primer reserva, el 50% de su tarifa a los huespedes cuyo apellido se encuentre repetido en la lista de huéspedes del hotel.\r\n\r\nSe solicita identificar todos los apellidos repetidos, ordenados alfabéticamente.\r\n\r\nEjemplo 1\r\nDado el siguiente listado de huéspedes:\r\n\r\n\t# Alvarez, Joseph\r\n\t# Paredes, Jorge\r\n\t# Romario, Luis\r\n\t# Alvarez , Marcos\r\n\t# Michellin, Agustin\r\n\t# Alvarez, Nicolas\r\n\t# Paredes, Nicolas\r\n\t\r\nHuespedes repetidos: [\"Alvarez\", \"Paredes\"]"
+			},
+			"response": []
+		}
+	]
+}
