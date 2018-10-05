@@ -74,8 +74,8 @@ Total: $2661,84
 ##### Request
 ````json
 {
-  "check-in": "2018-10-03",
-  "check-out": "2018-10-19"
+  "checkIn": "2018-10-03",
+  "checkOut": "2018-10-19"
 }
 ````
 ##### Response
@@ -133,7 +133,7 @@ Una vez obtenida la secuencia, la contraseña se compondrá como "PASS-P-H-C" d�
 * H = Número de habitación
 * C = La cantidad de veces que la palabra "JAVA" aparece sobre la secuencia.
  
-> Tanto para  el número de piso como de habitación, se concidera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
+> Tanto para  el número de piso como de habitación, se considera los numeros enteros sin ceros por delante (Ejemplo: Habitacion 01, piso 05 no son valores correctos)
  
 Se solicita desarrollar la lógica asociada a la definición de la contraseña de red.
 
@@ -194,7 +194,7 @@ _Huespedes repetidos:_ ["Alvarez", "Paredes"]
 #### Endpoint GET /guests/last-name/repeated
 ````json
 {
-  "last-names": ["Alvarez", "Paredes"]
+  "lastNames": ["Alvarez", "Paredes"]
 }
 ````
 
