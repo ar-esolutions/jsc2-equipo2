@@ -8,6 +8,18 @@ CREATE TABLE rooms (
 	type        VARCHAR2(10) NOT NULL
 );
 
+CREATE TABLE reservas (
+	id      INTEGER PRIMARY KEY,
+	Fecha_inicio       DATE NOT NULL,
+	Fecha_final       DATE NOT NULL,
+	room_id       INTEGER NOT NULL
+);
+
+INSERT INTO reservas VALUES(2,SYSDATE, '2018-10-20', 1);
+INSERT INTO reservas VALUES(3,SYSDATE, '2018-10-20', 2);
+INSERT INTO reservas VALUES(4,SYSDATE, '2018-10-20', 3);
+INSERT INTO reservas VALUES(5,SYSDATE, '2018-10-20', 4);
+
 --changeset mpianello:2
 INSERT INTO rooms VALUES (1, 1, 1, 'ESTANDAR');
 INSERT INTO rooms VALUES (2, 1, 2, 'ESTANDAR');
