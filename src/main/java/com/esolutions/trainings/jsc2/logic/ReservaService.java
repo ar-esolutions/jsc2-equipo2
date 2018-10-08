@@ -20,6 +20,7 @@ public class ReservaService {
 
     public Reserva getReserva(long id, Date fechaInicio, Date fechaFinal)
     {
-        return List<Reserva> reservasRango = this.repository.findByStartDateAndEndDate()
+        return new Reserva();
+        //return List <Reserva> reservasRango = this.repository.findByStartDateAndEndDate();
     }
 }
