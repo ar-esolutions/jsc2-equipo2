@@ -25,7 +25,7 @@ public class Dias {
     }
     public static int[] getDiasDeLaSemana(String fechaInicio,String fechaFin)
     {
-        //Devuelve los dias de la semana entre dos fechas, siendo lunes=1, martes=2, ... con sabado=7
+        //Devuelve los dias de la semana entre dos fechas, siendo Domingo=1, Lunes=2, ... con sabado=7
         int[] retorno=null;
         try
         {
