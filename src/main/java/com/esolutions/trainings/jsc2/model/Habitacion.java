@@ -33,11 +33,10 @@ public class Habitacion {
     //metodo para valida Habitacion vacia
     public boolean estaVaciaH(){
         boolean bandera;
-        if(huesped==null)
+        if(huesped.isEmpty())
            return  bandera=true;
         else
           return bandera =false;
-
     }
 
 }
