@@ -8,8 +8,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 @EnableConfigurationProperties(LiquibaseProperties.class)
 public class Jsc2App {
-	public static void main(String[] args) {
-		SpringApplication.run(Jsc2App.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Jsc2App.class, args);
+    }
 
 }
+
+

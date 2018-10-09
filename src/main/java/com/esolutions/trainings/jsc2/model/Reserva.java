@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
-
 @Entity
 @Table(name = "RESERVAS")
 public class Reserva {
@@ -13,14 +12,14 @@ public class Reserva {
     @Id
     private Long id;
 
-    @Column(name = "fechaInicio", nullable = false)
-    private Date fechaInicio;
+    @Column(name = "FECHAINICIO", nullable = false)
+    private Date FECHAINICIO;
 
-    @Column(name = "fechaSalida", nullable = false)
-    private Date fechaSalida;
+    @Column(name = "FECHASALIDA", nullable = false)
+    private Date FECHASALIDA;
 
-    @Column(name = "roomId", nullable = false)
-    private int roomId;
+    @Column(name = "ROOMID", nullable = false)
+    private int ROOMID;
 
     public Long getId() {
         return id;
@@ -31,26 +30,32 @@ public class Reserva {
     }
 
     public Date getFechaInicio() {
-        return fechaInicio;
+        return FECHAINICIO;
     }
 
     public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+        this.FECHAINICIO = fechaInicio;
     }
 
+
     public Date getFechaSalida() {
-        return fechaSalida;
+        return FECHASALIDA;
     }
 
     public void setFechaSalida(Date fechaSalida) {
-        this.fechaSalida = fechaSalida;
+        this.FECHASALIDA = fechaSalida;
     }
 
     public int getRoomId() {
-        return roomId;
+        return ROOMID;
     }
 
     public void setRoomId(int roomId) {
-        this.roomId = roomId;
+        this.ROOMID = roomId;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Reserva [id=%s, fechainicio=%s, fechasalida=%s]", id, FECHAINICIO, FECHASALIDA);
     }
 }

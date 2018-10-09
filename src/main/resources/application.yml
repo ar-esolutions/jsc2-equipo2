@@ -1,5 +1,5 @@
 server:
-  port: 9090
+  port: 9191
 
 spring:
   datasource:
@@ -19,6 +19,11 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
   liquibase:
     drop-first: true
     change-log: classpath:db/changelog/master.xml
