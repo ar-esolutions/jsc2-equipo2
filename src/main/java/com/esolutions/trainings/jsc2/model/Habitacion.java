@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Habitacion {
     //Atributos
     private int numeroHabitacion;
-    ArrayList<Guest> huesped;
+    private Guest huesped;
 
     //Constructor
-    public Habitacion(int numeroHabitacion, ArrayList<Guest> p) {
+    public Habitacion(int numeroHabitacion) {
         this.numeroHabitacion = numeroHabitacion;
-        this.huesped = new ArrayList<>();
+        this.huesped = new Guest();
     }
     //--------------------------------------------------------------------------
 
@@ -22,21 +22,16 @@ public class Habitacion {
         this.numeroHabitacion = numeroHabitacion;
     }
 
-    public ArrayList<Guest> getHuesped() {
+    public Guest getHuesped() {
         return huesped;
     }
 
-    public void setHuesped(ArrayList<Guest> huesped) {
+    public void setHuesped(Guest huesped) {
         this.huesped = huesped;
     }
 
-    //metodo para valida Habitacion vacia
-    public boolean estaVaciaH(){
-        boolean bandera;
-        if(huesped.isEmpty())
-           return  bandera=true;
-        else
-          return bandera =false;
-    }
-
+    //Metodo ingresar huesped
+    //public void ingresarHuesped(Guest g){
+    //    huesped.add(g);
+    //}
 }

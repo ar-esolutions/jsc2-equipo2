@@ -1,36 +1,45 @@
 package com.esolutions.trainings.jsc2.web;
 
+import com.esolutions.trainings.jsc2.http.WifiResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.regex.Pattern;
-
 @RestController
 public class WifiController {
-    @RequestMapping(method = RequestMethod.GET, path = "/floors/{floor}/rooms/{room}/wifi/ssid)")
-    public String tobinario(@PathVariable int floor,@PathVariable int room){
+    @RequestMapping(method = RequestMethod.GET, path = "/floors/{floor}/rooms/{room}/wifi/ssid")
+    public WifiResponse tobinario(@PathVariable int floor, @PathVariable int room) {
 
         String binarioFloor = Integer.toBinaryString(floor);
         String binarioRoom = Integer.toBinaryString(room);
-        String cadenaFinal = binarioFloor+binarioRoom;
+        String cadenaFinal = binarioFloor + binarioRoom;
 
-        String [] spliter = cadenaFinal.split("1");
-        //int find = 0;
-        ArrayList <String> find = new ArrayList<>();
+        String[] spliter = cadenaFinal.split("1");
+
+        //ArrayList <String> find = new ArrayList<>();
 
         int aux = 0;
+        int contador = 0;
+        for (int i = 0; i < cadenaFinal.length(); i++) {
+            contador = 0;
+            if (cadenaFinal.charAt(i) == '1') {
+                for (int j = i + 1; j < cadenaFinal.length(); j++) {
+                    if (cadenaFinal.charAt(j) == '0') {
+                        contador++;
+                    } else {
+                        i = j - 1;
+                        if (contador > aux) {
+                            aux = contador;
+                        }
+                        break;
+                    }
 
-        for (String s : spliter){
-            if (aux < s.length() ){
-                if (s.charAt(0) == '1' && s.charAt(s.length()-1) == '1')
-                aux = s.length();
-
+                }
             }
         }
 
-        return Integer.toString(aux);
+
+        return new WifiResponse("HAND" + room + floor + aux);
     }
 }

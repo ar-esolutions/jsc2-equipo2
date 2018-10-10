@@ -28,7 +28,7 @@ public class Hotel {
         }
 
         for (int i = 0; i<fin +1; i++){
-            
+
         }
     }
 
