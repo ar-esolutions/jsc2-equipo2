@@ -30,6 +30,7 @@ public class Guest {
 		this.name = name;
 	}
 
+
 	@Override
 	public String toString() {
 		return "El id del cliente es:" + id.toString();
