@@ -9,16 +9,16 @@ import javax.persistence.Table;
 @Table(name = "GUESTS")
 public class Guest {
 	@Id
-	private int id;
+	private Long id;
 
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -30,8 +30,9 @@ public class Guest {
 		this.name = name;
 	}
 
-	//@Override
-	//public String toString() {
-	//	return "El id del cliente es:" + id.toString();
-	//}
+
+	@Override
+	public String toString() {
+		return "El id del cliente es:" + id.toString();
+	}
 }

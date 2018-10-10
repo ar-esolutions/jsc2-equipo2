@@ -1,30 +1,24 @@
 --liquibase formatted sql
 
 --changeset mpianello:1
-CREATE TABLE tipos (
-  type    VARCHAR2(10) PRIMARY KEY,
-  precioLunJue  DOUBLE NOT NULL,
-  precioVieDom DOUBLE NOT NULL
-);
-
 CREATE TABLE rooms (
 	id          INTEGER PRIMARY KEY,
 	floor       INTEGER NOT NULL,
 	nro         INTEGER NOT NULL,
-	type        VARCHAR2(10) NOT NULL references tipos(type)
+	type        VARCHAR2(10) NOT NULL
 );
-
 
 CREATE TABLE reservas (
 	id      INTEGER PRIMARY KEY,
-	fechainicio       DATE NOT NULL,
-	fechasalida       DATE NOT NULL,
-	roomid       INTEGER NOT NULL references rooms(id)
+	Fecha_inicio       DATE NOT NULL,
+	Fecha_final       DATE NOT NULL,
+	room_id       INTEGER NOT NULL
 );
 
-
-INSERT INTO tipos VALUES ('ESTANDAR', 150.99, 191.99);
-INSERT INTO tipos VALUES ('SUITE', 187.99, 202.99);
+INSERT INTO reservas VALUES(2,SYSDATE, '2018-10-20', 1);
+INSERT INTO reservas VALUES(3,SYSDATE, '2018-10-20', 2);
+INSERT INTO reservas VALUES(4,SYSDATE, '2018-10-20', 3);
+INSERT INTO reservas VALUES(5,SYSDATE, '2018-10-20', 4);
 
 --changeset mpianello:2
 INSERT INTO rooms VALUES (1, 1, 1, 'ESTANDAR');
@@ -438,11 +432,11 @@ INSERT INTO guests (id, name) VALUES (98, 'peeres,lucas');
 INSERT INTO guests (id, name) VALUES (99, 'aguilar,dorantes');
 INSERT INTO guests (id, name) VALUES (100, 'camarena,dorantes');
 
+CREATE TABLE reservas (
+	id          INTEGER PRIMARY KEY,
+	type        VARCHAR2(10) NOT NULL
+);
 
-
-INSERT INTO reservas VALUES(2,SYSDATE, '2018-10-20', 1);
-INSERT INTO reservas VALUES(3,SYSDATE, '2018-10-20', 2);
-INSERT INTO reservas VALUES(4,SYSDATE, '2018-10-20', 3);
-INSERT INTO reservas VALUES(5,SYSDATE, '2018-10-20', 4);
+INSERT INTO reservas(id,type) VALUES (01,'tipo');
 
 COMMIT;
