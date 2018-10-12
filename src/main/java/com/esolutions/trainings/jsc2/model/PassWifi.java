@@ -1,14 +1,15 @@
 package com.esolutions.trainings.jsc2.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.regex.Pattern;
 
 public class PassWifi {
-    private ArrayList<String>arreglo = new ArrayList<>();
+    private ArrayList<String>arreglo;
 
     private void getCadena(int tamaño)
     {
-        ArrayList<String>arreglo = new ArrayList<>();
+        arreglo = new ArrayList<>();
         arreglo.add("J");
         boolean primero = true;
         ArrayList<String> auxiliar = new ArrayList<>();
@@ -35,13 +36,15 @@ public class PassWifi {
                 }
 
             }
-            arreglo = auxiliar;
+
+            arreglo = new ArrayList<>(auxiliar);
             auxiliar.clear();
         }
     }
 
     public void imprimir()
     {
+        getCadena(6);
         for (int i = 0; i < arreglo.size(); i++) {
             System.out.print(arreglo.get(i));
         }
