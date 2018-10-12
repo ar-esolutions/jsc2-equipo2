@@ -19,33 +19,33 @@ public class PassWIfi {
         ArrayList<String>arreglo = new ArrayList<>();
         arreglo.add("J");
         boolean primero = true;
+        ArrayList<String> auxiliar = new ArrayList<>();
 
         Pattern pattern = Pattern.compile("JAVA");
-
+        String letra;
         for (int i = 0; i < tamaño; i++) {
-            for (int j = i +1; j < tamaño +1; j++) {
+            for (int j = 0; j < arreglo.size(); j++) {
+                letra=arreglo.get(j);
+                switch(letra)
+                {
+                    case "J":
+                        auxiliar.add("J");
+                        auxiliar.add("A");
+                        break;
+                    case "A":
+                        auxiliar.add("V");
+                        auxiliar.add("A");
+                        break;
+                    case "V":
+                        auxiliar.add("V");
+                        auxiliar.add("J");
+                        break;
 
-                if(primero && arreglo.get(arreglo.size()-1) == "J") {
-                    arreglo.set(0,"JA");
-                    primero = false;
-                    break;
-                } else if (arreglo.get(arreglo.size()-1) == ("JA")){
-                    arreglo.set(0,"JAVA");
-                    break;
-                } else if (arreglo.get(arreglo.size()-1) == ("JAVA")){
-                    arreglo.set(0,"JAVAVJVA");
-                    break;
-                } else if (arreglo.get(arreglo.size()-1) == ("JAVAVJVA")){
-                    arreglo.set(0,"JAVAVJVAVJJAVJVA");
-                    break;
-                } else if(arreglo.get(arreglo.size()-1) == ("JAVAVJVAVJJAVJVA")){
-                    arreglo.set(0,"JAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVA");
-                    break;
-                } else if(arreglo.get(arreglo.size()-1) == "JAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVA"){
-                    arreglo.set(0,"JAVAVJVAVJJAVJVAVJJAJAVAVJJAVJVAVJJAJAVAJAVAVJVAVJJAJAVAVJJAVJVA");
-                    break;
                 }
+
            }
+           arreglo = auxiliar;
+            auxiliar.clear();
         }
 
         Matcher match = pattern.matcher(arreglo.toString());
