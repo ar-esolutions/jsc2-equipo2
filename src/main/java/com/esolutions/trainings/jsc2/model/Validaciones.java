@@ -9,8 +9,8 @@ public class Validaciones {
     }
 
     //Metodo para coprobar si se cumple cuadrado perfecto
-    static boolean comprobarCudradoPerfecto(int i) {
-        long numero = i;
+    static boolean comprobarCudradoPerfecto(Guest huesped) {
+        long numero = huesped.getId();
         double aux = Math.sqrt(numero); //sqrt nos calcula la raiz cuadrada indicada por parametro
         long resultado = (long) aux;
         if (resultado % 2 == 0) {
