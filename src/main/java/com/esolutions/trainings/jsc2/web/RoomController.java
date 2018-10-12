@@ -25,7 +25,7 @@ public class RoomController {
         }
         catch(IndexOutOfBoundsException e)
         {
-            return new GuestResponse(null);
+            return new GuestResponse(0);
         }
 
     }

@@ -40,7 +40,7 @@ public class GuestController {
 
             }
         }
-        GuestResponse retorno = new GuestResponse(lista);
+        GuestResponse retorno = new GuestResponse(0);
         return retorno;
     }
 }
