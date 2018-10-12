@@ -432,11 +432,5 @@ INSERT INTO guests (id, name) VALUES (98, 'peeres,lucas');
 INSERT INTO guests (id, name) VALUES (99, 'aguilar,dorantes');
 INSERT INTO guests (id, name) VALUES (100, 'camarena,dorantes');
 
-CREATE TABLE reservas (
-	id          INTEGER PRIMARY KEY,
-	type        VARCHAR2(10) NOT NULL
-);
-
-INSERT INTO reservas(id,type) VALUES (01,'tipo');
 
 COMMIT;
