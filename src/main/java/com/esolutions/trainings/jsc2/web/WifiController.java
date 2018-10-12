@@ -38,8 +38,11 @@ public class WifiController {
                 }
             }
         }
-
-
-        return new WifiResponse("HAND" + room + floor + aux);
+        if  (aux == 0){
+            return new WifiResponse("HAND" + floor +"-"+ room);
+        } else {
+            return new WifiResponse("HAND" + floor +"-"+ room +"-"+ aux);
+        }
+        //return new WifiResponse("HAND-" + floor +"-"+ room +"-"+ aux);
     }
 }
