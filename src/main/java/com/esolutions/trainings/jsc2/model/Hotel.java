@@ -18,7 +18,7 @@ public class Hotel {
         return pisos;
     }
 
-    //Metodo carga de huespedes/habitaciones por piso
+    /*Metodo carga de huespedes/habitaciones por piso
     public void cagarHotel() {
 
         int contador = 0;
@@ -31,9 +31,8 @@ public class Hotel {
             
         }
     }
-
-    //-------------------------------------------------------------------------------------------------------
-}
+    */
+    }
 
 
 

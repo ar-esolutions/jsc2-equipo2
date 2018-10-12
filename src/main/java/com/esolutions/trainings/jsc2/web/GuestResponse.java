@@ -1,17 +1,17 @@
 package com.esolutions.trainings.jsc2.web;
 
 public class GuestResponse {
-    private Integer guest;
+    private String[] lastNames;
 
-    public GuestResponse(Integer guest) {
-        this.guest = guest;
+    public GuestResponse(String[] lastNames) {
+        this.lastNames = lastNames;
     }
 
-    public Integer getGuest() {
-        return guest;
+    public String[] getLastNames() {
+        return lastNames;
     }
 
-    public void setGuest(Integer guest) {
-        this.guest = guest;
+    public void setLastNames(String[] lastNames) {
+        this.lastNames = lastNames;
     }
 }
