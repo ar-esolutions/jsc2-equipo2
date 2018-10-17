@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Dias {
+
+
     public static Date parseDate(String fecha)
     {
 
@@ -18,7 +20,7 @@ public class Dias {
             fechaInicial = new SimpleDateFormat("MM/dd/yyyy").parse(fechaFinal);
         }catch(Exception e)
         {
-            System.out.println(e.toString());
+            //Excepcion Agus
         }
         return fechaInicial;
 
@@ -37,15 +39,14 @@ public class Dias {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(fechaInicial);
                 calendar.add(Calendar.DAY_OF_YEAR,i);
-                Date fecha = calendar.getTime();
                 retorno[i]=calendar.get(Calendar.DAY_OF_WEEK);
 
-                System.out.println("La fecha es: " +fecha + " Y el dia de la semana es: "+ calendar.get(Calendar.DAY_OF_WEEK));
+
             }
         }
         catch(Exception e)
         {
-            System.out.println(e.toString());
+
         }
         return retorno;
 

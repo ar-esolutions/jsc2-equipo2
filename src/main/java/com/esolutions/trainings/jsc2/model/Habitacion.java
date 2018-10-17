@@ -30,8 +30,5 @@ public class Habitacion {
         this.huesped = huesped;
     }
 
-    //Metodo ingresar huesped
-    //public void ingresarHuesped(Guest g){
-    //    huesped.add(g);
-    //}
+
 }
