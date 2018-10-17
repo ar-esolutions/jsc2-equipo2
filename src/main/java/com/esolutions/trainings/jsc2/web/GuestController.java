@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 @RestController
 public class GuestController {
     private final GuestRepeatedService service;
@@ -15,14 +20,15 @@ public class GuestController {
     public GuestController(GuestRepeatedService service) {
         this.service = service;
     }
-
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated")
-    public GuestResponse repeatedLastName() {
+
+    public Set<String> repeatedLastName() {
 
 
         String[] lista = this.service.obtenerDatosGuests();
+        Set<String> ListaFinal = new HashSet<String>();
 
-        String[] listafinal = new String[10];
+        //String[] listafinal = new String[10];
         int cont = 0;
         int cLista = 0;
         for (int i = 0; i < lista.length; i++) {
@@ -37,10 +43,12 @@ public class GuestController {
                 }
             }
             if (cont > 1) {
-
+                ListaFinal.add(lista[i]);
             }
         }
-        GuestResponse retorno = new GuestResponse(0);
-        return retorno;
+        //GuestResponse retorno = new GuestResponse(0);
+
+
+        return ListaFinal;
     }
 }
