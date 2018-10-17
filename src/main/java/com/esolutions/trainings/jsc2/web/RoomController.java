@@ -19,13 +19,14 @@ public class RoomController {
         try
         {
             Hotel hotel = new Hotel();
-            int guestNumber = hotel.getHotel().get(floor).getRooms().get(room);
+            int guestNumber = hotel.getHotel().get(floor-1).getRooms().get(room-1);
 
             return new GuestResponse(guestNumber);
         }
         catch(IndexOutOfBoundsException e)
         {
-            return new GuestResponse(0);
+
+            return new GuestResponse();
         }
 
     }
