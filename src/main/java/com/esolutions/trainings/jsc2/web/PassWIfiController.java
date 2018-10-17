@@ -1,5 +1,6 @@
 package com.esolutions.trainings.jsc2.web;
 
+import com.esolutions.trainings.jsc2.model.PassWifi;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,10 +14,10 @@ import java.util.regex.Pattern;
 public class PassWIfiController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/floors/{floor}/rooms/{room}/wifi/password")
-    public int getPass(@PathVariable int floor, @PathVariable int room){
+    public String getPass(@PathVariable int floor, @PathVariable int room){
 
-
-        return 1;
+        PassWifi pw = new PassWifi();
+         return pw.getPass(floor,room);
     }
 
 }
