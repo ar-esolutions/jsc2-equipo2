@@ -6,6 +6,7 @@ public class TestMain {
     public static void main(String[] args) {
 
         PassWifi pw = new PassWifi();
-        pw.imprimir();
+        System.out.println(pw.getPass(4,3));
+        pw.imprimir(7);
     }
 }
