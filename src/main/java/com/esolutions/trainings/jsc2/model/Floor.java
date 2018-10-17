@@ -5,9 +5,6 @@ import java.util.List;
 public class Floor {
     private List<Integer> rooms;
 
-    public Floor() {
-    }
-
     public List<Integer> getRooms() {
         return rooms;
     }

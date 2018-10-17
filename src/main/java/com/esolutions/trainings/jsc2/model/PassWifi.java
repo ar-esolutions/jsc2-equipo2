@@ -31,7 +31,8 @@ public class PassWifi {
                         auxiliar.append("V");
                         auxiliar.append("J");
                         break;
-
+                    default :
+                        break;
                 }
 
             }

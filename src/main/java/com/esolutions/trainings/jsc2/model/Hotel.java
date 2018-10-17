@@ -18,7 +18,7 @@ public class Hotel {
             for (int j = 0; j < hotel.size(); j++) {
                 List<Integer> listaAuxiliar = hotel.get(j).getRooms();
                 int ultimo = listaAuxiliar.get(listaAuxiliar.size() - 1);
-                if (comprobarCuadrado(ultimo, i + 1)) {
+                if (comprobarCuadrado(ultimo, i + 1.0)) {
                     listaAuxiliar.add(i + 1);
                     floor = new Floor();
                     floor.setRooms(listaAuxiliar);
@@ -39,9 +39,9 @@ public class Hotel {
         return hotel;
     }
 
-    private boolean comprobarCuadrado(int ultimo, int nuevo) {
+    private boolean comprobarCuadrado(double ultimo, double nuevo) {
         double primero = Math.sqrt(ultimo + nuevo);
-        int segundo = (int) Math.sqrt(ultimo + nuevo);
+        double segundo = Math.sqrt(ultimo + nuevo);
         if (primero % segundo == 0) {
             return true;
         } else {
