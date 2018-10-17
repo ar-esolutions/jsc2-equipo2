@@ -4,74 +4,70 @@ import java.util.ArrayList;
 
 public class PassWifi {
 
-    private ArrayList<String>arreglo;
+    private StringBuilder arreglo;
 
     private void getCadena(int tamaño)
     {
-        arreglo = new ArrayList<>();
-        arreglo.add("J");
+        arreglo = new StringBuilder("J");
         boolean primero = true;
-        ArrayList<String> auxiliar = new ArrayList<>();
+        StringBuilder auxiliar = new StringBuilder();
 
-        String letra;
+        char letra;
         for (int i = 0; i < tamaño; i++) {
-            for (int j = 0; j < arreglo.size(); j++) {
-                letra=arreglo.get(j);
+            auxiliar = new StringBuilder();
+            for (int j = 0; j < arreglo.length(); j++) {
+                letra=arreglo.charAt(j);
                 switch(letra)
                 {
-                    case "J":
-                        auxiliar.add("J");
-                        auxiliar.add("A");
+                    case 'J':
+                        auxiliar.append("J");
+                        auxiliar.append("A");
                         break;
-                    case "A":
-                        auxiliar.add("V");
-                        auxiliar.add("A");
+                    case 'A':
+                        auxiliar.append("V");
+                        auxiliar.append("A");
                         break;
-                    case "V":
-                        auxiliar.add("V");
-                        auxiliar.add("J");
+                    case 'V':
+                        auxiliar.append("V");
+                        auxiliar.append("J");
                         break;
 
                 }
 
             }
 
-            arreglo = new ArrayList<>(auxiliar);
-            auxiliar.clear();
+            arreglo = auxiliar;
         }
     }
-    /*
-    ********************************************************************************************************************
-     */
-    public  int encontrarPalabra(String s){
 
-        int numerodeveces = 0;
-
-        for (int i = 0; i < arreglo.size(); i++) {
-            if (arreglo.get(i).contains("J") && arreglo.get(i+1).contains("A")
-                && arreglo.get(i+2).contains("V")&& arreglo.get(i+3).contains("A")){
-                numerodeveces++;
+    public String pruebaPass(int floor, int room)
+    {
+        int contador=0;
+        this.getCadena(floor+room);
+        for (int i = 0; i < arreglo.length(); i++) {
+            if(arreglo.charAt(i)=='J')
+            {
+                if(arreglo.charAt(i+1)=='A')
+                {
+                    if(arreglo.charAt(i+2)=='V')
+                    {
+                        if(arreglo.charAt(i+3)=='A')
+                        {
+                            contador++;
+                            i+=3;
+                        }
+                        else
+                        {
+                            i+=2;
+                        }
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
             }
         }
-        return numerodeveces;
-    }
-    /*
-     ********************************************************************************************************************
-     */
-    public void imprimir(int t)
-    {
-        getCadena(t);
-        for (int i = 0; i < arreglo.size(); i++) {
-            System.out.print(arreglo.get(i));
-        }
-    }
-    /*
-     ********************************************************************************************************************
-     */
-    public  String getPass(int floor, int room){
-        getCadena(floor + room);
-        int pass = encontrarPalabra(arreglo.toString());
-        String result = "PASS- "+floor+"-"+room+"-"+pass;
-        return result;
+        return "PASS "+floor+"-"+room+"-"+contador;
     }
 }
