@@ -1,17 +1,18 @@
 package com.esolutions.trainings.jsc2.web;
 
 public class GuestResponse {
-    private int lastNames;
+    private int guest;
 
     public GuestResponse(int lastNames) {
-        this.lastNames = lastNames;
+        this.guest = lastNames;
     }
 
-    public int getLastNames() {
-        return lastNames;
+
+    public int getGuest() {
+        return guest;
     }
 
-    public void setLastNames(int lastNames) {
-        this.lastNames = lastNames;
+    public void setGuest(int guest) {
+        this.guest = guest;
     }
 }
