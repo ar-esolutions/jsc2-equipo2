@@ -6,11 +6,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.esolutions.trainings.jsc2.http.RepeatedGuestResponse;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 public class GuestController {
@@ -22,13 +20,13 @@ public class GuestController {
     }
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated")
 
-    public Set<String> repeatedLastName() {
+    public RepeatedGuestResponse repeatedLastName() {
 
 
         String[] lista = this.service.obtenerDatosGuests();
-        Set<String> ListaFinal = new HashSet<String>();
+        SortedSet<String> LastNames = new TreeSet<String>();
 
-        //String[] listafinal = new String[10];
+
         int cont = 0;
         int cLista = 0;
         for (int i = 0; i < lista.length; i++) {
@@ -43,12 +41,12 @@ public class GuestController {
                 }
             }
             if (cont > 1) {
-                ListaFinal.add(lista[i]);
+                LastNames.add(lista[i]);
             }
         }
-        //GuestResponse retorno = new GuestResponse(0);
 
+        RepeatedGuestResponse retorno = new RepeatedGuestResponse(LastNames);
 
-        return ListaFinal;
+        return retorno;
     }
 }
