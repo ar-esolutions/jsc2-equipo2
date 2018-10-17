@@ -43,6 +43,5 @@ public class WifiController {
         } else {
             return new WifiResponse("HAND" + floor +"-"+ room +"-"+ aux);
         }
-        //return new WifiResponse("HAND-" + floor +"-"+ room +"-"+ aux);
     }
 }

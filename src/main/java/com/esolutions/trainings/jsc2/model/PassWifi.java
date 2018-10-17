@@ -1,10 +1,9 @@
 package com.esolutions.trainings.jsc2.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.regex.Pattern;
 
 public class PassWifi {
+
     private ArrayList<String>arreglo;
 
     private void getCadena(int tamaño)
@@ -41,12 +40,38 @@ public class PassWifi {
             auxiliar.clear();
         }
     }
+    /*
+    ********************************************************************************************************************
+     */
+    public  int encontrarPalabra(String s){
 
-    public void imprimir()
+        int numerodeveces = 0;
+
+        for (int i = 0; i < arreglo.size(); i++) {
+            if (arreglo.get(i).contains("J") && arreglo.get(i+1).contains("A")
+                && arreglo.get(i+2).contains("V")&& arreglo.get(i+3).contains("A")){
+                numerodeveces++;
+            }
+        }
+        return numerodeveces;
+    }
+    /*
+     ********************************************************************************************************************
+     */
+    public void imprimir(int t)
     {
-        getCadena(6);
+        getCadena(t);
         for (int i = 0; i < arreglo.size(); i++) {
             System.out.print(arreglo.get(i));
         }
+    }
+    /*
+     ********************************************************************************************************************
+     */
+    public  String getPass(int floor, int room){
+        getCadena(floor + room);
+        int pass = encontrarPalabra(arreglo.toString());
+        String result = "PASS- "+floor+"-"+room+"-"+pass;
+        return result;
     }
 }

@@ -8,7 +8,7 @@ public class TestMain {
     public static void main(String[] args) {
 
         PassWifi pw = new PassWifi();
-        pw.imprimir();
+
 
     }
 }
