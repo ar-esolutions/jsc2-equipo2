@@ -61,6 +61,9 @@ public class ReservaService {
         }
         return precio;
     }
+    public void insertReservar(int id, LocalDate fechainicio, LocalDate fechasalida, int roomid){
+        this.repository.insertarRoom(id, fechainicio, fechasalida, roomid);
+    }
 
     private boolean isWeekDays(int dia) {
         return 2 <= dia && dia <= 4;

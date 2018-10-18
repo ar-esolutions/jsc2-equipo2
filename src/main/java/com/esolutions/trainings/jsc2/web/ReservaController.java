@@ -73,9 +73,11 @@ public class ReservaController {
         long numOfDaysBetween = ChronoUnit.DAYS.between(fi, fs);
         List<Reserva> res = new ArrayList<Reserva>();
         res = this.service.validarHabitacionXfecha(fi, fs, idRoom);
-
+        int cont = 1;
         if (res.isEmpty()) {
             result = true;
+            this.service.insertReservar(cont, fi ,fs , idRoom  );
+            cont++;
         } else {
             result = false;
         }
