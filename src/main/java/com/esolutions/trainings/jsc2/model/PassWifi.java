@@ -10,7 +10,7 @@ public class PassWifi {
     {
         arreglo = new StringBuilder("J");
         boolean primero = true;
-        StringBuilder auxiliar = new StringBuilder();
+        StringBuilder auxiliar;
 
         char letra;
         for (int i = 0; i < tamaño; i++) {
@@ -31,7 +31,8 @@ public class PassWifi {
                         auxiliar.append("V");
                         auxiliar.append("J");
                         break;
-
+                    default :
+                        break;
                 }
 
             }
@@ -45,10 +46,8 @@ public class PassWifi {
         int contador=0;
         this.getCadena(floor+room);
         for (int i = 0; i < arreglo.length(); i++) {
-            if(arreglo.charAt(i)=='J')
+            if(arreglo.charAt(i)=='J' && arreglo.charAt(i+1)=='A' )
             {
-                if(arreglo.charAt(i+1)=='A')
-                {
                     if(arreglo.charAt(i+2)=='V')
                     {
                         if(arreglo.charAt(i+3)=='A')
@@ -65,7 +64,7 @@ public class PassWifi {
                     {
                         i++;
                     }
-                }
+
             }
         }
         return "PASS "+floor+"-"+room+"-"+contador;
