@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 public class ReservaController {
     private final ReservaService service;
-
+    public int cont = 1;
     @Autowired
     public ReservaController(ReservaService service) {
         this.service = service;
@@ -73,7 +73,7 @@ public class ReservaController {
         long numOfDaysBetween = ChronoUnit.DAYS.between(fi, fs);
         List<Reserva> res = new ArrayList<Reserva>();
         res = this.service.validarHabitacionXfecha(fi, fs, idRoom);
-        int cont = 1;
+
         if (res.isEmpty()) {
             result = true;
             this.service.insertReservar(cont, fi ,fs , idRoom  );
@@ -92,6 +92,31 @@ public class ReservaController {
         //retorno del JSon map con el respuesta.
         return response;
     }
+
+    @RequestMapping(method = {RequestMethod.POST}, path = "/fechas", produces = {"application/JSON"})
+    @ResponseBody
+    public int[] obtenerDiasFechas(@RequestBody Map checkin) throws JsonProcessingException {
+
+
+        Object[] fechas = checkin.values().toArray();
+        ////////////////////////////
+
+        //CREARFECHAS
+        String fis = fechas[0].toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate fi = LocalDate.parse(fis, formatter);
+        String fss = fechas[1].toString();
+        LocalDate fs = LocalDate.parse(fss, formatter);
+        ////////////////////////////
+
+        //OBTENER PRECIO
+        int[] totalDias = Dias.getDiasDeLaSemana(fis, fss);
+
+
+        return totalDias;
+    }
+
+
 }
 
 

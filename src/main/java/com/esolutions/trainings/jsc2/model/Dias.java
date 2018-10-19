@@ -40,8 +40,6 @@ public class Dias {
                 calendar.setTime(fechaInicial);
                 calendar.add(Calendar.DAY_OF_YEAR,i);
                 retorno[i]=calendar.get(Calendar.DAY_OF_WEEK);
-
-
             }
         }
         catch(Exception e)
