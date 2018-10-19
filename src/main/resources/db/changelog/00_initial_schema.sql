@@ -15,10 +15,7 @@ CREATE TABLE reservas (
 	roomid       INTEGER NOT NULL
 );
 
-INSERT INTO reservas VALUES(2,'2018-11-10', '2018-11-20', 1);
-INSERT INTO reservas VALUES(3,'2018-10-20', '2018-10-30', 2);
-INSERT INTO reservas VALUES(4,'2018-05-20', '2018-10-20', 3);
-INSERT INTO reservas VALUES(5,'2018-12-28', '2019-01-05', 4);
+
 
 --changeset mpianello:2
 INSERT INTO rooms VALUES (1, 1, 1, 'ESTANDAR');
