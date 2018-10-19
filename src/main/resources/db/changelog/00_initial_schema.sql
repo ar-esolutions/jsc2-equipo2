@@ -394,7 +394,7 @@ INSERT INTO guests (id, name) VALUES (60, 'acosta,matias');
 INSERT INTO guests (id, name) VALUES (61, 'garrido,alberto');
 INSERT INTO guests (id, name) VALUES (62, 'garsa,alberto');
 INSERT INTO guests (id, name) VALUES (63, 'garsia,alberto');
-INSERT INTO guests (id, name) VALUES (64, 'garza,raúl');
+INSERT INTO guests (id, name) VALUES (64, 'garza,raúl')
 INSERT INTO guests (id, name) VALUES (65, 'acevedo,pablo');
 INSERT INTO guests (id, name) VALUES (66, 'teyo,maximo');
 INSERT INTO guests (id, name) VALUES (67, 'garzia,raúl');
