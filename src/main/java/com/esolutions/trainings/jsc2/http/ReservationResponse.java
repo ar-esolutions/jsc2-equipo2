@@ -1,5 +1,7 @@
 package com.esolutions.trainings.jsc2.http;
 
+import java.text.DecimalFormat;
+
 public class ReservationResponse {
     private boolean booked;
     private double price;

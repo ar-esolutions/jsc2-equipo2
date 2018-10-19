@@ -60,7 +60,9 @@ public class ReservaController {
         //OBTENER PRECIO
         int[] totalDias = Dias.getDiasDeLaSemana(fis, fss);
 
-        double precio = this.service.obtenerPrecio(tipoRoom, totalDias);
+        double precio = this.service.obtenerPrecio(tipoRoom, totalDias) ;
+        /*int precioInt = (int) precio;
+        precio = precio/100;*/
         ////////////////////////////
 
         //MAPEAR FECHAS Y JSON RESPONSE

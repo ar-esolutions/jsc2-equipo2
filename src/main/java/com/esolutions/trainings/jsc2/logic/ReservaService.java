@@ -66,6 +66,6 @@ public class ReservaService {
     }
 
     private boolean isWeekDays(int dia) {
-        return 2 <= dia && dia <= 4;
+        return 2 <= dia && dia <= 5;
     }
 }
