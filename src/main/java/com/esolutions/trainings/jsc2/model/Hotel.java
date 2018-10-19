@@ -41,7 +41,7 @@ public class Hotel {
 
     private boolean comprobarCuadrado(double ultimo, double nuevo) {
         double primero = Math.sqrt(ultimo + nuevo);
-        double segundo = Math.sqrt(ultimo + nuevo);
+        int segundo = (int)Math.sqrt(ultimo + nuevo);
         if (primero % segundo == 0) {
             return true;
         } else {
