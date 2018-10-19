@@ -67,6 +67,6 @@ public class PassWifi {
 
             }
         }
-        return "PASS "+floor+"-"+room+"-"+contador;
+        return "PASS-"+floor+"-"+room+"-"+contador;
     }
 }
