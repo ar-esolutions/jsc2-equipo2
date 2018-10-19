@@ -30,7 +30,8 @@ public class GuestController {
         int cont = 0;
         int cLista = 0;
         for (int i = 0; i < lista.length; i++) {
-            lista[i] = StringUtils.capitalize(lista[i].substring(0,lista[i].indexOf(",")));
+            lista[i] = StringUtils.capitalize(lista[i].substring(0,lista[i].indexOf(",")).trim());
+
         }
         for (int i = 0; i < lista.length; i++)
         {
